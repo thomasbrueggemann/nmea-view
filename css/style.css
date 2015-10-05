@@ -37,7 +37,7 @@ HEADER ROW STYLE
 	padding: 15px 0;
 }
 
-#header-row .navbar{margin:10px 0 0 0;}
+#header-row .navbar{margin:20px 0 0 0;}
 
 #header-row .navbar .navbar-inner{
 	border:none;
@@ -234,4 +234,13 @@ margin-top:40px;
 /* Landscape phones and down */
 @media (max-width: 480px) { ... }
 
+.logoline {
+	font-size:2em;
+	margin-left:20px;
+	font-family:'Source Sans Pro', sans-serif;
+	font-weight: 200; 
+	color: #555;
+	top:5px;
+	position: relative;
+}
 

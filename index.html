@@ -2,10 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>ShapeBootstrap Clean Template</title>
+    <title>NMEA View - Visualisierungssoftware</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="NMEA View ist eine NMEA Daten Visualisierungssoftware">
+    <meta name="author" content="Thomas Brüggemann">
     <!-- Bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
@@ -44,32 +44,22 @@
     <div class="container">
       <div class="row">
               <!--LOGO-->
-              <div class="span3"><a class="brand" href="#"><img src="img/logo.png"/></a></div>
+              <div class="span6"><a class="brand" href="#">
+                <img src="img/logo.png" style="height:80px"/></a>
+                <span class="logoline">NMEA View</span>
+              </div>
               <!-- /LOGO -->
 
             <!-- MAIN NAVIGATION -->  
-              <div class="span9">
+              <div class="span6">
                 <div class="navbar  pull-right">
                   <div class="navbar-inner">
                     <a data-target=".navbar-responsive-collapse" data-toggle="collapse" class="btn btn-navbar"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a>
                     <div class="nav-collapse collapse navbar-responsive-collapse">
                     <ul class="nav">
-                        <li class="active"><a href="index.html">Home</a></li>
-                        
-                        <li class="dropdown">
-                          <a href="about.html" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                  <li><a href="about.html">Company</a></li>
-                                  <li><a href="about.html">History</a></li>
-                                  <li><a href="about.html">Team</a></li>
-                            </ul>
-
-                        </li>
-
-                        <li><a href="service.html">Services</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                 
+                        <li><a href="#ueberblick">Überblick</a></li>
+                        <li><a href="#funktionen">Funktionen</a></li>
+                        <li><a href="#kontakt">Kontakt</a></li>
                     </ul>
                   </div>
 
@@ -86,6 +76,7 @@
 
 
   <div class="container">
+  <a name="ueberblick"></a>
 
   <!--Carousel
   ==================================================-->
@@ -100,14 +91,14 @@
               <div class="span6">
 
                 <div class="carousel-caption">
-                      <h1>Example headline</h1>
-                      <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                      <a class="btn btn-large btn-primary" href="#">Sign up today</a>
+                      <h1>Einfach Daten sammeln</h1>
+                      <p class="lead">Sammeln Sie ihre NMEA Daten über einen NMEA Multiplexer oder einen entsprechenden Datenlogger. Sie loggen Ihre NMEA Daten noch nicht? - Kontaktieren Sie uns!</p>
+                      <a class="btn btn-large btn-primary" href="#kontakt">Angebot anfordern</a>
                 </div>
 
               </div>
 
-                <div class="span6"> <img src="img/slide/slide1.jpg"></div>
+                <div class="span6"> <img src="img/logger.jpg"></div>
 
           </div>
         </div>
@@ -125,14 +116,14 @@
               <div class="span6">
 
                 <div class="carousel-caption">
-                      <h1>Example headline</h1>
-                      <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                      <a class="btn btn-large btn-primary" href="#">Sign up today</a>
+                      <h1>Schnelle Aufbereitung</h1>
+                      <p class="lead">Durch Importieren der NMEA Daten in <i>NMEA View</i> erhalten Sie sofort eine Visualisierung der Datensätze. GPS Datensätze werden z.B. auf einer Karte angezeigt.</p>
+                      <a class="btn btn-large btn-primary" href="#kontakt">Angebot anfordern</a>
                 </div>
 
               </div>
 
-                <div class="span6"> <img src="img/slide/slide2.jpg"></div>
+                <div class="span6"> <img src="img/maps.png" style="margin-top:80px"></div>
 
           </div>
         </div>
@@ -159,39 +150,39 @@
 
 
   <div class="row feature-box">
+    <a name="funktionen"></a>
       <div class="span12 cnt-title">
-       <h1>At vero eos et accusamus et iusto odio dignissimos</h1> 
-        <span>Contrary to popular belief, Lorem Ipsum is not simply random text.</span>        
+       <h1>Wo andere Tools aufhören, ...</h1> 
+        <span>... fängt NMEA View gerade erst an</span>        
       </div>
 
       <div class="span4">
-        <img src="img/icon3.png">
-        <h2>Feature A</h2>
+        <img src="img/1437701405_yacht_sailing_sailboat_travel_ship_tourism_flat_icon_symbol.png" style="width:200px">
+        <h2>Integration</h2>
         <p>
-            Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
+            Durch Auswertung der gesammelten NMEA Datensätze lässt sich <i>NMEA View</i> in jeden gewünschten Arbeitsablauf integrieren. 
         </p>
 
-        <a href="#">Read More &rarr;</a>
+        <a href="#kontakt">Interessiert? &rarr;</a>
 
       </div>
 
       <div class="span4">
-        <img src="img/icon2.png">
-        <h2>Feature B</h2>
+        <img src="img/1437701391_map_navigation_route_cartography_travel_tourism_flat_icon_symbol.png" style="width:200px">
+        <h2>Visualisierung</h2>
         <p>
-            Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna 
-            aliqua. 
+            Ob auf der Karte via Geopositionen, in Tabellen oder Graphenform. Der intelligente Algorithmus von NMEA View findet die passende Visualisierungsform oder entsprechende Kombinationen.
         </p>   
-          <a href="#">Read More &rarr;</a>    
+          <a href="#kontakt">Interessiert? &rarr;</a>    
       </div>
 
       <div class="span4">
-        <img src="img/icon1.png">
-        <h2>Feature C</h2>
+        <img src="img/1437701412_wallet_money_purse_cash_travel_tourism_flat_icon_symbol.png" style="width:200px">
+        <h2>Persönliches Angebot</h2>
         <p>
-            Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. 
+            Der NMEA Standard umfasst viele Protokolle, ebenso vielfältig sind die Anwendungsfälle. Kontaktieren Sie uns für ein maßgeschneidertes Angebot für Ihre NMEA Visualisierung. 
         </p>
-          <a href="#">Read More &rarr;</a>
+          <a href="#kontakt">Interessiert? &rarr;</a>
       </div>
   </div>
 
@@ -204,13 +195,15 @@
 
 
     <div class="row">
-        <div class="span6"><img src="img/responsive.png"></div>
+      <a name="kontakt"></a>
+        <div class="span3"><img src="img/1437701436_postage_stamp_mark_postal_travel_tourism_flat_icon_symbol.png" style="width:150px"></div>
 
-        <div class="span6">
-          <img class="hidden-phone" src="img/icon4.png" alt="">
-          <h1>Fully Responsive</h1>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-             <a href="#">Read More &rarr;</a>
+        <div class="span9">
+          <h1>Kontakt</h1>
+            <p>Kontaktieren Sie uns gerne mit Ihrem speziellen NMEA Visualisierungs-Anliegen. Gemeinsam entwickeln wir auf Basis von <i>NMEA View</i> eine individualisierte Softwarelösung für Sie. Wir freuen uns auf Ihre Anfrage!</p>
+
+            <a href="mailto:mail@thomasbrueggemann.com?Subject=Angebotsanfrage%20NMEA%20View&Body=Guten%20Tag%2C%0A%0Abitte%20kontaktieren%20Sie%20mich%20bezüglich%20eines%20individuellen%20Angebotes%20einer%20NMEA%20Visualisierungslösung." class="btn btn-primary btn-large">Angebot anfordern</a>
+
         </div>
     </div>
 
@@ -228,16 +221,18 @@
 <footer>
     <div class="container">
       <div class="row">
-        <div class="span6">Copyright &copy 2013 Shapebootstrap | All Rights Reserved  <br>
-        <small>Aliquam tincidunt mauris eu risus.</small>
+        <div class="span6">Copyright &copy 2015 Thomas Brüggemann<br>
+        <small>
+          <br>
+          Thomas Brüggemann<br>
+          Scheidtweilerstraße 15<br>
+          50933 Köln<br>
+          Ust.-Id.: DE296185491
+        </small>
         </div>
         <div class="span6">
-            <div class="social pull-right">
-                <a href="#"><img src="img/social/googleplus.png" alt=""></a>
-                <a href="#"><img src="img/social/dribbble.png" alt=""></a>
-                <a href="#"><img src="img/social/twitter.png" alt=""></a>
-                <a href="#"><img src="img/social/dribbble.png" alt=""></a>
-                <a href="#"><img src="img/social/rss.png" alt=""></a>
+            <div class="pull-right">
+                <a href="impressum.html">Impressum</a>
             </div>
         </div>
       </div>

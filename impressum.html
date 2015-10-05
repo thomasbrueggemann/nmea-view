@@ -30,6 +30,24 @@
     ============================================================-->  
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
+
+    <!--GOOGLE MAP-->
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+     <script>
+		var map;
+		function initialize() {
+		  var mapOptions = {
+		    zoom: 8,
+		    center: new google.maps.LatLng(-34.397, 150.644),
+		    mapTypeId: google.maps.MapTypeId.ROADMAP
+		  };
+		  map = new google.maps.Map(document.getElementById('map-canvas'),
+		      mapOptions);
+		}
+
+		google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
 </head>
 
 <body>
@@ -78,7 +96,7 @@
   </div>
   <!-- /HEADER ROW -->
 
-
+<a href='http://www.freepik.com/free-vector/street-map_787678.htm'>Designed by Freepik</a></div>
 
 
 <div class="container">
@@ -88,7 +106,7 @@
 		<div class="span12">
 		<div class="page-header">
 				<h1>
-				Services
+				Contact
 			</h1>
 		</div>
 		</div>
@@ -96,108 +114,55 @@
 
   <!-- /. PAGE TITLE-->
 
-	<div class="row">
-		<div class="span6">
-		<div class="media">
-				 <a href="#" class="pull-left"><img src="img/icon-service1.png" class="media-object" alt='' /></a>
-				<div class="media-body">
-					<h4 class="media-heading">
-						Nested media heading
-					</h4> 
-					<p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.	
-					</p>
-					<a href="#" class="btn" type="button">Button</a>
+  <div class="row">
+
+  	<div class="span12"> 
+  		<div id="map-canvas"></div>
+  	</div>
+
+  		<span class="span6">
+  			<form>
+				<fieldset>
+					 <h3>Get in Touch</h3>
+					 
+					 <input class="input-xxlarge" type="text" placeholder="Name" /> 
+					 <input class="input-xxlarge" type="text" type="email" placeholder="Email" required/> 
+
+					 <textarea  class="input-xxlarge"  rows="10"  placeholder="Your Message"></textarea>
+						<br>
+					 <button type="submit" class="btn">Submit</button>
+				</fieldset>
+			</form>
+  		</span>
 
 
-				</div>
-			</div>
-		</div>			
+  		<span class="span6">
 
 
-		<div class="span6">
 
-		<div class="media">
-				 <a href="#" class="pull-left"><img src="img/icon-service2.png" class="media-object" alt='' /></a>
-				<div class="media-body">
-					<h4 class="media-heading">
-						Nested media heading
-					</h4> 
-					<p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
-					</p>
-					<a href="#" class="btn" type="button">Button</a>
-				</div>
-			</div>
-		</div>
+  			<h3>Address</h3>
+  			<address>
+  <strong>Fornax, Inc.</strong><br>
+  795 Folsom Ave, Suite 600<br>
+  San Francisco, CA 94107<br>
+  <abbr title="Phone">P:</abbr> (123) 456-7890
+</address>
+ 
+<address>
+  <strong>Full Name</strong><br>
+  <a href="mailto:#">first.last@example.com</a>
+</address>
 
-		<div class="span6">
-		<div class="media">
-				 <a href="#" class="pull-left"><img src="img/icon-service3.png" class="media-object" alt='' /></a>
-				<div class="media-body">
-					<h4 class="media-heading">
-						Nested media heading
-					</h4> 
-					<p>
-					Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
-					</p>
-					<a href="#" class="btn" type="button">Button</a>
-				</div>
-			</div>
-		</div>
+  			<p>
+Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
 
 
-		
-		<div class="span6">
-		<div class="media">
-				 <a href="#" class="pull-left"><img src="img/icon-service4.png" class="media-object" alt='' /></a>
-				<div class="media-body">
-					<h4 class="media-heading">
-						Nested media heading
-					</h4> 
-					<p>
-					Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
-					</p>
-					<a href="#" class="btn" type="button">Button</a>
-				</div>
-			</div>
+  			</p>
+  		</span>
 
+  </div>
 
-		</div>		
-
-		<div class="span6">
-		<div class="media">
-				 <a href="#" class="pull-left"><img src="img/icon-service5.png" class="media-object" alt='' /></a>
-				<div class="media-body">
-					<h4 class="media-heading">
-						Nested media heading
-					</h4> 
-					<p>
-					Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
-					</p>
-					<a href="#" class="btn" type="button">Button</a>
-				</div>
-			</div>
-
-
-		</div>		
-
-		<div class="span6">
-		<div class="media">
-				 <a href="#" class="pull-left"><img src="img/icon-service6.png" class="media-object" alt='' /></a>
-				<div class="media-body">
-					<h4 class="media-heading">
-						Nested media heading
-					</h4> 
-					<p>
-					Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
-					</p>
-					<a href="#" class="btn" type="button">Button</a>
-				</div>
-			</div>
-
-
-		</div>
-
-	</div>
+	
 </div>
 
 
