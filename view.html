@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NMEA View</title>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <style>
+        html, body {
+            margin: 0px;
+            padding: 0px;
+            width:100%;
+            height:100%;
+        }
+
+        #map {
+            width:100%;
+            height:100%;
+        }
+
+        #positionSlider {
+            position:absolute;
+            bottom:30px;
+            left:50%;
+            margin-left:-300px;
+            width:600px;
+            background:white;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.65);
+            border-radius:4px;
+            padding:10px;
+            clear:both;
+        }
+
+        #positionSliderRange {
+            width:520px;
+            display:inline;
+            margin-left:10px;
+            position:relative;
+            top:4px;
+        }
+
+        @media (max-width:768px) {
+            #positionSlider {
+                width:85% !important;
+                margin-left:-45% !important;
+            }
+
+            #positionSliderRange {
+                width:90% !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+
+    <div id="positionSlider" class="hidden">
+        <button class="btn btn-default btn-xs" id="playpause"><i class="fa fa-play"></i></button>
+        <input id="positionSliderRange" type="range" min="0" max="0" step="1" value="0" data-toggle="tooltip" data-placement="top" title="" />
+    </div>
+
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.js"></script>
+    <script src="http://thomasbrueggemann.github.io/leaflet.boat/js/leaflet.boat.min.js"></script>
+    <script>
+
+        var map = L.map("map").setView([51.505, -0.09], 2);
+
+        // basic tile layer of mapbox
+        L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6IjZjNmRjNzk3ZmE2MTcwOTEwMGY0MzU3YjUzOWFmNWZhIn0.Y8bhBaUMqFiPrDRW9hieoQ", {
+            "maxZoom": 18,
+            "attribution": "Map data &copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors, " +
+                "<a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, " +
+                "Imagery © <a href=\"http://mapbox.com\">Mapbox</a>",
+            "id": "mapbox.outdoors"
+        }).addTo(map);
+
+        // add openseamap markers
+        L.tileLayer("http://tiles.openseamap.org/seamark/{z}/{x}/{y}.png", {
+            "maxZoom": 18,
+            "minZoom": 9
+        }).addTo(map);
+
+        // load geojson file
+        $.getJSON("20151004.geojson", function(data) {
+
+            // add geojson to map
+            var geojsonLayer = L.geoJson(data, {
+                "color": "#e74c3c",
+                "weight": 3,
+                "opacity": 0.8
+            }).addTo(map);
+
+            // center track on map
+            map.fitBounds(geojsonLayer, {
+                "padding": [25, 25]
+            });
+
+            // place boat
+            var boat = L.boat(data.geometry.coordinates[0].reverse(), {
+                color: "#295D54"
+            });
+
+            boat.addTo(map);
+
+            // slider position
+            var $pSR = $("#positionSliderRange");
+            $pSR.attr("max", data.geometry.coordinates.length - 1);
+
+            // slider was moved
+            $pSR.on("input", function() {
+                var posIdx = $pSR.val();
+
+                // reposition boat
+                boat.setLatLng(data.geometry.coordinates[posIdx].reverse());
+
+                // boat heading
+                boat.setHeading(data.properties.meta[posIdx].course);
+            });
+        });
+
+    </script>
+</body>
+</html>

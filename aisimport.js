@@ -5,6 +5,7 @@ var turf = require("turf");
 var concat = require("concat-files");
 
 var data = [];
+var meta = [];
 var args = process.argv.slice(2);
 
 if (args.length !== 2) {
@@ -14,6 +15,7 @@ if (args.length !== 2) {
 
 // read all files in folder
 fs.readdir(args[0], function(err, files) {
+
 	if (err) throw err;
 
 	console.log("Using files:", files);
@@ -35,18 +37,29 @@ fs.readdir(args[0], function(err, files) {
 		// line by line
 		rd.on("line", function(line) {
 
+			// GPGGA
 			if (line.indexOf("$GPGGA") === 0) {
 
 				var aisObj = nmea.parse(line);
 
-				// is data valid?
-				if (aisObj.hdop < 20 && aisObj.latitude !== "NaN" && aisObj.longitude !== "NaN") {
 
-					data.push({
-						"time": parseInt(aisObj.time),
-						"latitude": parseFloat(aisObj.latitude),
-						"longitude": parseFloat(aisObj.longitude),
-					});
+				data.push({
+					"time": parseInt(aisObj.time),
+					"latitude": parseFloat(aisObj.latitude),
+					"longitude": parseFloat(aisObj.longitude),
+				});
+
+			}
+
+			// GPVTG
+			if (line.indexOf("$GPVTG") === 0) {
+
+				var aisObj = nmea.parse(line);
+
+				if (data.length > 0) {
+
+					data[data.length - 1].speed = aisObj.knots;
+					data[data.length - 1].course = parseInt(aisObj.course);
 				}
 			}
 		});
@@ -54,18 +67,32 @@ fs.readdir(args[0], function(err, files) {
 		// data read till the end
 		rd.on("close", function() {
 
+			// filter invalid positions
+			data = data.filter(function(item) {
+				return item.latitude && item.longitude;
+			});
+
 			// sort by date
 			data.sort(function(a, b) {
 				return a.time - b.time;
 			});
 
+			// just get coordinates out of data
 			var coords = data.map(function(item) {
 				return [item.longitude, item.latitude];
 			});
 
+			// initialize geojson format
 			var geojson = {
 				"type": "Feature",
-				"properties": {},
+				"properties": {
+					"meta": data.map(function(item) {
+						return {
+							"speed": item.speed,
+							"course": item.course
+						}
+					})
+				},
 				"geometry": {
 					"type": "LineString",
 					"coordinates": []
@@ -84,6 +111,5 @@ fs.readdir(args[0], function(err, files) {
 			fs.unlink("merged.tmp");
 			console.log("Ready. Check file", args[1] + ".geojson");
 		});
-
 	});
 });
