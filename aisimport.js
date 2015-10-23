@@ -102,7 +102,8 @@ fs.readdir(args[0], function(err, files) {
 			geojson["geometry"]["coordinates"] = coords;
 
 			var tolerance = 0.000005;
-			var simplified = turf.simplify(geojson, tolerance, false);
+			//var simplified = turf.simplify(geojson, tolerance, false);
+			simplified = geojson;
 
 			console.log(coords.length + " simplified to -> ", simplified.geometry.coordinates.length);
 
