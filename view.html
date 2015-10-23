@@ -84,7 +84,7 @@
         }
 
         // load geojson file
-        $.getJSON(location.hash.replace("#", "") + ".geojson", function(data) {
+        $.getJSON("geojson/" + location.hash.replace("#", "") + ".geojson", function(data) {
 
             // add geojson to map
             var geojsonLayer = L.geoJson(data, {
