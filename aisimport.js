@@ -40,8 +40,8 @@ fs.readdir(args[0], function(err, files) {
 			// GPGGA
 			if (line.indexOf("$GPGGA") === 0) {
 
+				console.log(line);
 				var aisObj = nmea.parse(line);
-
 
 				data.push({
 					"time": parseInt(aisObj.time),
